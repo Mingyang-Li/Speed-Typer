@@ -40,7 +40,7 @@ let randomWord;
 let score = 0;
 
 //init time
-let time = 0;
+let time = 10;
 
 //focus text on start
 text.focus();
@@ -54,9 +54,7 @@ difficultySelect.value = localStorage.getItem('difficulty') !== null ? localStor
 //start game btn clicked
 startGameBtn.addEventListener('click', () => {
   //start counting down
-  const timeInterval = setInterval(updateTime, 1000);
-  time = 10;
-  updateTime();
+  setInterval(updateTime, 1000);
 });
 
 //get random word function
@@ -81,7 +79,7 @@ function updateTime() {
   time--;
   timeEl.innerHTML = time + 's';
   if (time === 0) {
-    clearInterval(timeInterval);
+    time = 11;
     gameOver();
   }
 }
